@@ -52,9 +52,17 @@ def loadpc(file_list):
 				os.makedirs(f"customData/withoutNormals/{r}")
 			np.savetxt(f"customData/withoutNormals/{r}/{file}_{r}.xyz",pc_with_normals_fps[:,:3])
 
+def con_pc_with_up(file_list):
+	for file in file_list:
+		pc = np.loadtxt('customData_GT/withoutNormals/1024/' + file + '_1024.xyz')
+		pc_up = np.loadtxt('upsampled/' + file + '_4096.xyz')
+
+		res = np.concatenate((pc,pc_up),axis=0)
+
+		np.savetxt(f"datasets_2/PCPNet/{file}.xyz",res)
 
 
 if __name__ == "__main__":
-	file_list_filename = 'datasets/PCPNet/list/mytest.txt'
+	file_list_filename = 'hey.txt'
 	file_list = [line.strip() for line in open(file_list_filename)]
-	loadpc(file_list)
+	con_pc_with_up(file_list)
