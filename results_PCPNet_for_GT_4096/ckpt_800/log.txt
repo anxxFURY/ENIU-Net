@@ -1,0 +1,39 @@
+[2024-02-05 14:39:57,010::test(2502283)(001-800)::INFO] Output and logs will be saved to: ./log/001/results_PCPNet/ckpt_800
+[2024-02-05 14:39:57,010::test(2502283)(001-800)::INFO] Command: test.py --gpu=0 --dataset_root=datasets_4096 --data_set=PCPNet --log_root=./log/ --ckpt_dirs=001 --ckpt_iters=800 --patch_size=700 --batch_size=700 --sample_size=1200 --encode_knn=16 --save_pn=True --sparse_patches=False --tag= --testset_list=mytest --eval_list mytest
+[2024-02-05 14:39:57,010::test(2502283)(001-800)::INFO] Loading model: ./log/001/ckpts/ckpt_800.pt
+[2024-02-05 14:40:00,525::test(2502283)(001-800)::INFO] Number of trainable parameters: 3274248
+[2024-02-05 14:40:06,761::test(2502283)(001-800)::INFO] [0/46] Liberty100k_4096: time per patch: 6.388 ms
+[2024-02-05 14:40:08,170::test(2502283)(001-800)::INFO] [5/46] Liberty100k_4096: time per patch: 0.054 ms
+[2024-02-05 14:40:08,482::test(2502283)(001-800)::INFO] Save normal: ./log/001/results_PCPNet/ckpt_800/pred_normal/Liberty100k_4096.normals
+[2024-02-05 14:40:08,482::test(2502283)(001-800)::INFO] Total Time: 4.66 sec, Shape Num: 1 / 8 
+
+[2024-02-05 14:40:09,902::test(2502283)(001-800)::INFO] [10/46] star_smooth100k_4096: time per patch: 0.054 ms
+[2024-02-05 14:40:10,552::test(2502283)(001-800)::INFO] Save normal: ./log/001/results_PCPNet/ckpt_800/pred_normal/star_smooth100k_4096.normals
+[2024-02-05 14:40:10,552::test(2502283)(001-800)::INFO] Total Time: 4.89 sec, Shape Num: 2 / 8 
+
+[2024-02-05 14:40:11,624::test(2502283)(001-800)::INFO] [15/46] tortuga100k_4096: time per patch: 0.055 ms
+[2024-02-05 14:40:12,621::test(2502283)(001-800)::INFO] Save normal: ./log/001/results_PCPNet/ckpt_800/pred_normal/tortuga100k_4096.normals
+[2024-02-05 14:40:12,621::test(2502283)(001-800)::INFO] Total Time: 5.12 sec, Shape Num: 3 / 8 
+
+[2024-02-05 14:40:13,355::test(2502283)(001-800)::INFO] [20/46] pipe_curve100k_4096: time per patch: 0.054 ms
+[2024-02-05 14:40:14,693::test(2502283)(001-800)::INFO] Save normal: ./log/001/results_PCPNet/ckpt_800/pred_normal/pipe_curve100k_4096.normals
+[2024-02-05 14:40:14,693::test(2502283)(001-800)::INFO] Total Time: 5.34 sec, Shape Num: 4 / 8 
+
+[2024-02-05 14:40:15,083::test(2502283)(001-800)::INFO] [25/46] Cup34100k_4096: time per patch: 0.054 ms
+[2024-02-05 14:40:16,763::test(2502283)(001-800)::INFO] Save normal: ./log/001/results_PCPNet/ckpt_800/pred_normal/Cup34100k_4096.normals
+[2024-02-05 14:40:16,763::test(2502283)(001-800)::INFO] Total Time: 5.57 sec, Shape Num: 5 / 8 
+
+[2024-02-05 14:40:16,811::test(2502283)(001-800)::INFO] [30/46] galera100k_4096: time per patch: 0.054 ms
+[2024-02-05 14:40:18,527::test(2502283)(001-800)::INFO] [35/46] galera100k_4096: time per patch: 0.057 ms
+[2024-02-05 14:40:18,834::test(2502283)(001-800)::INFO] Save normal: ./log/001/results_PCPNet/ckpt_800/pred_normal/galera100k_4096.normals
+[2024-02-05 14:40:18,834::test(2502283)(001-800)::INFO] Total Time: 5.80 sec, Shape Num: 6 / 8 
+
+[2024-02-05 14:40:20,247::test(2502283)(001-800)::INFO] [40/46] column_head100k_4096: time per patch: 0.052 ms
+[2024-02-05 14:40:20,558::test(2502283)(001-800)::INFO] Save normal: ./log/001/results_PCPNet/ckpt_800/pred_normal/column_head100k_4096.normals
+[2024-02-05 14:40:20,558::test(2502283)(001-800)::INFO] Total Time: 5.98 sec, Shape Num: 7 / 8 
+
+[2024-02-05 14:40:21,992::test(2502283)(001-800)::INFO] [45/46] Boxy_smooth100k_4096: time per patch: 0.057 ms
+[2024-02-05 14:40:26,339::test(2502283)(001-800)::INFO] Save normal: ./log/001/results_PCPNet/ckpt_800/pred_normal/Boxy_smooth100k_4096.normals
+[2024-02-05 14:40:26,339::test(2502283)(001-800)::INFO] Total Time: 10.19 sec, Shape Num: 8 / 8 
+
+[2024-02-05 14:40:26,394::test(2502283)(001-800)::INFO] Total Time: 10.19 sec, Shape Num: 8

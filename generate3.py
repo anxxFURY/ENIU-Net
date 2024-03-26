@@ -79,7 +79,6 @@
 # generator=Generator3D6(model, model2, device)
 
 
-
 # for k in range(len(datalist)):
 #     print("processing "+datalist[k])
 #     #normalization
@@ -104,23 +103,17 @@
 
 #     #upsampling
 #     pointcloud = np.array(generator.upsample(cloud))
-    
+
 #     #farthest_point_sample
-#     print("farthest point sample")  
+#     print("farthest point sample")
 #     for i in range(pointcloud.shape[0]):
 #         pointcloud[i]=pointcloud[i]*scale
 #         pointcloud[i]=pointcloud[i]+loc
 
 #     centroids1=farthest_point_sample(pointcloud, tpointnumber[0])
-    
+
 #     if not os.path.exists(f"upsampled"):
 #                 os.makedirs(f"upsampled")
 
 #     np.savetxt(outlist[k],pointcloud[centroids1])
 #     print("done")
-
-
-
-
-
-
