@@ -1,3 +1,6 @@
 [submodule "sapcu"]
 	path = sapcu
 	url = https://github.com/xnowbzhao/sapcu.git
+[submodule "shs"]
+	path = shs
+	url = https://github.com/LeoQLi/SHS-Net.git
