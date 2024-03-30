@@ -1,8 +1,0 @@
-Liberty100k_4096
-star_smooth100k_4096
-tortuga100k_4096
-pipe_curve100k_4096
-Cup34100k_4096
-galera100k_4096
-column_head100k_4096
-Boxy_smooth100k_4096

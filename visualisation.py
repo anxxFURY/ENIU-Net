@@ -38,7 +38,7 @@ def visPointCloud(xyz, blue=True):
     o3d.visualization.draw_geometries([pcd])
 
 
-def visPointCloudWithHeatMap(xyz, cosine):
+def visPointCloudWithHeatMap(xyz, cosine, save_path, show=True):
     pcd = o3d.geometry.PointCloud()
     num_points = len(xyz)
     color = np.zeros((num_points, 3), dtype=np.float64)
@@ -60,8 +60,9 @@ def visPointCloudWithHeatMap(xyz, cosine):
             color[i] = np.array([255, 0, 0]) / 255.0
 
     pcd.colors = o3d.utility.Vector3dVector(color)
-    o3d.io.write_point_cloud("paper_results/liberty/1.ply", pcd)
-    o3d.visualization.draw_geometries([pcd])
+    o3d.io.write_point_cloud(save_path, pcd)
+    if show:
+        o3d.visualization.draw_geometries([pcd])
 
 
 def meshingPointCloud(xyz, file_path="test.obj"):

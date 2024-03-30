@@ -47,13 +47,13 @@ def cosine_sim(normal_gts, pred_normals, save_pth=None):
     return cosine
 
 
-def normal_RMSE(normal_gts, normal_preds, eval_file="log/1024_PCP_log.txt"):
+def normal_RMSE(normal_gts, normal_preds, eval_file):
     """
     Compute normal root-mean-square error (RMSE)
     normal_gts = list of Ground truth normals
     normal_preds = list of prediction normals
     """
-
+  
     def l2_norm(v):
         norm_v = np.sqrt(np.sum(np.square(v), axis=1))
         return norm_v
@@ -173,30 +173,24 @@ def read_shapes_list(file_path):
 
 
 if __name__ == "__main__":
-    shape_list = read_shapes_list("hey.txt")
+    shape_list = read_shapes_list("testset_all_4096.txt")
 
-    # pc_in = np.loadtxt("customData_GT/withNormals/1024/tortuga100k_1024.xyz")
-    # pred = np.loadtxt("/Users/aniruddhashadagali/All-Codes/PythonCode/Experiments/pcpnet/results_for_4096/single_scale_normal/Liberty100k_4096.normals")
-    # # pc_up = np.loadtxt("upsampled/Liberty100k_4096.xyz")
-    # # pc_5120 = np.loadtxt("log/res-5120/Liberty100k_5120.xyz")
-    # # pc_5120_norm = np.loadtxt("log/res-5120/Liberty100k_5120.xyz")
-    # # pc_1024_norm = np.loadtxt("log/res-1024/Liberty100k_1024.xyz")
-    # pc_gt = np.loadtxt("customData_GT/withNormals/1024/Liberty100k_1024.xyz")
+    gt_normals = []
+    pred_normals = []
 
-    # xx = np.loadtxt("log/res-1024/Liberty100k_1024.xyz")
-    # cos = np.loadtxt("log/cosine_similarity-ENU/Liberty100k_1024.xyz")
-    # visualisation.visPointCloud(pc_in[:,:3])
+    # Change accordingly...
+    for shape in shape_list:
+        input_point_cloud = np.loadtxt(f"customDataNew/withoutNormals/4096/{shape}.xyz")
+        gt_normal = np.loadtxt(f"customDataNew/onlyNormals/4096/{shape}.normals")
+        pred_normal = np.loadtxt(f"/Users/aniruddhashadagali/All-Codes/PythonCode/Experiments/Dataset/PCPNet/log_ours_4096/001/results_PCPNet/ckpt_800/pred_normal/{shape}.normals")
 
-    pc = np.loadtxt("customData_GT/withNormals/4096/star_smooth100k_4096.xyz")
-    # visualisation.visPointCloud(pc[:,:3],)
+        visualisation.visPointCloudWithHeatMap(input_point_cloud, cosine_sim(gt_normal, pred_normal), f"visualisation_Results/ours/4096/{shape}.ply", False)
 
-    o = np.loadtxt("log/res-SHS-4096/star_smooth100k_4096.xyz")
-    visualisation.visPointCloudWithHeatMap(
-        pc[:, :3], cosine_sim(pc[:, 3:], o[:,3:]))
+        pred_normals.append(pred_normal)
+        gt_normals.append(gt_normal)
+    
+    _,_ = normal_RMSE(gt_normals, pred_normals, f"rmse_Results/ours_4096.txt")
+    # o = np.loadtxt("log/res-SHS-4096/star_smooth100k_4096.xyz")
+    # visualisation.visPointCloudWithHeatMap(
+    #     pc[:, :3], cosine_sim(pc[:, 3:], o[:,3:]))
 
-    # xx = np.loadtxt("customData_GT/withNormals/4096/tortuga100k_4096.xyz")
-    # # visualisation.meshingPointCloud(xx,"gt4096.obj")
-    # visualisation.visPointCloudWithNormals(xx)
-    # visualisation.visPointCloud(xx[:,:3], blue=True)
-    # visualisation.meshingPointCloud(xx,"cupDense.obj")
-    # visualisation.visPointCloud(xx[:, :3], blue=True)
